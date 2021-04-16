@@ -1,7 +1,37 @@
-from adventurelib import Item, say
+'''
+ ________  ________  ___      ___ _______   ________   _________   ___    ___ _________  _______   ________   ________     
+|\   __  \|\   ___ \|\  \    /  /|\  ___ \ |\   ___  \|\___   ___\|\  \  /  /|\___   ___\\  ___ \ |\   ___  \|\   ___ \    
+\ \  \|\  \ \  \_|\ \ \  \  /  / | \   __/|\ \  \\ \  \|___ \  \_|\ \  \/  / ||___ \  \_\ \   __/|\ \  \\ \  \ \  \_|\ \   
+ \ \   __  \ \  \ \\ \ \  \/  / / \ \  \_|/_\ \  \\ \  \   \ \  \  \ \    / /     \ \  \ \ \  \_|/_\ \  \\ \  \ \  \ \\ \  
+  \ \  \ \  \ \  \_\\ \ \    / /   \ \  \_|\ \ \  \\ \  \   \ \  \  /     \/       \ \  \ \ \  \_|\ \ \  \\ \  \ \  \_\\ \ 
+   \ \__\ \__\ \_______\ \__/ /     \ \_______\ \__\\ \__\   \ \__\/  /\   \        \ \__\ \ \_______\ \__\\ \__\ \_______\
+    \|__|\|__|\|_______|\|__|/       \|_______|\|__| \|__|    \|__/__/ /\ __\        \|__|  \|_______|\|__| \|__|\|_______|
+                                                                  |__|/ \|__|  
+                                                                  
+                                                                               By | |_|_| /\_|_._  _ o.__|_ _    
+                                                                                  |_|_| |/--\|_|_||_)(_)|| ||_(_)\/\/                                                                                                                        
+                                                                                                                                                                   
+    _/  _/                                                          _/                                _/                          _/      _/  _/_/_/  _/_/_/_/_/   
+   _/        _/_/_/    _/_/    _/_/_/      _/_/_/    _/_/      _/_/_/      _/    _/  _/_/_/      _/_/_/    _/_/    _/  _/_/      _/_/  _/_/    _/        _/        
+  _/  _/  _/        _/_/_/_/  _/    _/  _/_/      _/_/_/_/  _/    _/      _/    _/  _/    _/  _/    _/  _/_/_/_/  _/_/          _/  _/  _/    _/        _/         
+ _/  _/  _/        _/        _/    _/      _/_/  _/        _/    _/      _/    _/  _/    _/  _/    _/  _/        _/            _/      _/    _/        _/          
+_/  _/    _/_/_/    _/_/_/  _/    _/  _/_/_/      _/_/_/    _/_/_/        _/_/_/  _/    _/    _/_/_/    _/_/_/  _/            _/      _/  _/_/_/      _/           
+                                                                                                                                                                   
+                                                                                                                                                                   
+
+'''
+from adventurelib import Item, say # importing dependencies
 from random import choice
+
+
 class Character(Item):
+    '''
+    The character. If you are gonna use a battle, never use the variable "character"
+    because it is going to mess up your code.'''
     def __init__(self, name, desc, hp, dp, powers=None, exp=None):
+        '''
+        The character. If you are gonna use a battle, never use the variable "character"
+        because it is going to mess up your code.'''
         self.name = name
         self.desc = desc
         self.hp = hp
@@ -10,6 +40,10 @@ class Character(Item):
         self.exp = exp
 
 class Player(Character):
+    '''
+    The player class extends the character. Do NOT use the "player" variable.
+    result -> bugs
+    '''
     def __init__(self, name, hp, dp, powers=None, exp=None, lvl=None):
         self.name = name
         self.hp = hp
@@ -21,6 +55,13 @@ class Player(Character):
 
 class Battle():
     def __init__(self, lose_msg, win_msg, character_, player_, reset_func):
+        '''
+        lose_msg = messages when the player loses; is a list
+        win_msg = when the player wins; is a list
+        character_ = the character the player battles; is a Character object
+        player_ = the player variable; is a Player object
+        reset_func = function to reset your game if the player loses the battle.; is a function
+        '''
         self.lose_msg = lose_msg
         self.win_msg = win_msg
         character = character_
@@ -28,12 +69,15 @@ class Battle():
         self.reset_func = reset_func
 
     def start(self):
-        finished = False
+        '''
+        Starts the battle
+        '''
+        finished = False # the battle is not finished
         while not finished:
             if player.hp <= 0:
-                say("You died.")
+                say("You died.") # RIP you
                 
-                self.reset_func()
+                self.reset_func() # run the reset function, as it is going to 
                 break
             elif character.hp <= 0:
                 say("You won!")
