@@ -1,7 +1,7 @@
 # adventXtend
 A pretty basic companion module for @lordmauve 's adventurelib
 ## So, what's added?
-Characters
-A basic battle engine
-A player class (companion for battles and is just useful for some times)
-More stuff soon
+1. Characters
+2. A basic battle engine
+3. A player class (companion for battles and is just useful for some times)
+4. More stuff soon
