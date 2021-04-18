@@ -26,12 +26,10 @@ from random import choice
 
 class Character(Item):
     '''
-    The character. If you are gonna use a battle, never use the variable "character"
-    because it is going to mess up your code.'''
+    The character.'''
     def __init__(self, name, desc, hp, dp, powers=None, exp=None):
         '''
-        The character. If you are gonna use a battle, never use the variable "character"
-        because it is going to mess up your code.'''
+        The character. Do NOT use the variable "character"'''
         self.name = name
         self.desc = desc
         self.hp = hp
@@ -41,8 +39,7 @@ class Character(Item):
 
 class Player(Character):
     '''
-    The player class extends the character. Do NOT use the "player" variable.
-    result -> bugs
+    The player class extends the character.
     '''
     def __init__(self, name, hp, dp, powers=None, exp=None, lvl=None):
         self.name = name
@@ -79,11 +76,11 @@ class Battle():
                 
                 self.reset_func() # run the reset function, as it is going to 
                 break
-            elif character.hp <= 0:
+            elif character.hp <= 0: # Oh, yay, now do I have to beat that troll over there?
                 say("You won!")
                 break
-            message = choice(choice([self.win_msg, self.lose_msg]))
-            say(f'You are now fighting the {character}')
+            message = choice(choice([self.win_msg, self.lose_msg])) # generate a random message
+            say(f'You are now fighting the {character}') # yes, I do need to know when I am fighting the 
             response = input(f"HP{player.hp}\nChoose a power")
             if response in player.powers:
                 say(f'You {response} the {character.name}')
@@ -95,6 +92,6 @@ class Battle():
                 player.hp -= character.dp
                 say(f"The {character.name} fights you back and you lose {character.dp} HP")
             else:
-                say("Choose a valid power")
+                say("Choose a valid power") # yeah, do you really expect me?
             
             
