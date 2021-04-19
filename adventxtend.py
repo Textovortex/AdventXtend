@@ -20,7 +20,8 @@ _/  _/    _/_/_/    _/_/_/  _/    _/  _/_/_/      _/_/_/    _/_/_/        _/_/_/
                                                                                                                                                                    
 
 '''
-from adventurelib import Item, say # importing dependencies
+try: from adventurelib import Item, say # importing dependencies
+except: from adstrangerlib import Item, say
 from random import choice
 
 
