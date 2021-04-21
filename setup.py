@@ -1,6 +1,6 @@
 from os.path import abspath, dirname, join
 from setuptools import setup
-from adventurelib import __version__
+from advenxtend import __version__
 
 
 ROOT = abspath(dirname(__file__))
