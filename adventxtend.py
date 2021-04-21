@@ -24,6 +24,7 @@ try: from adventurelib import Item, say # importing dependencies
 except: from adstrangerlib import Item, say
 from random import choice
 
+__version__ = "0.0.1"
 
 class Character(Item):
     '''
